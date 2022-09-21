@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Bellefair', serif;
+    }
+}
+
+@layer components {
+    .iconSize {
+        @apply w-6 h-6;
+    }
+    .navItem {
+        @apply w-fit text-size24 px-5 text-inherit;
+    }
+}
