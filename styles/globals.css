@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        font-family: 'Bellefair', serif;
+        font-family: 'Marcellus', serif;
     }
 }
 
@@ -13,6 +13,15 @@
         @apply w-6 h-6;
     }
     .navItem {
-        @apply w-fit text-size24 px-5 text-inherit;
+        @apply w-fit text-size24 text-inherit cursor-pointer font-Marcellus;
+    }
+    .artilceItemMain {
+        @apply relative grid gap-y-3 mt-5 text-size40 text-pageWhite leading-none cursor-pointer;
+    }
+    .articleDescription {
+        @apply font-sans text-xs text-pageWhite;
+    }
+    .articleItemTextHover {
+        @apply border-b-default cursor-pointer w-fit duration-200 border-transparent hover:border-pageWhite;
     }
 }

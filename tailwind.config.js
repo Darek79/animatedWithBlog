@@ -7,6 +7,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 Bellefair: "'Bellefair', serif",
+                Marcellus: "'Marcellus', serif",
             },
             colors: {
                 navBg: '#202833',
@@ -48,17 +49,14 @@ module.exports = {
                 title: '3.25rem',
             },
             backgroundImage: {
-                gradientBlue: 'radial-gradient(100% 100% at 50% 100%, #4e49d5 0%, #7772ff 100%)',
-                gradientTop: 'linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0))',
-                gradientBottom: 'linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0))',
-                gradientOrange:
-                    'radial-gradient(100% 100% at 50% 0%, #FF8B55 0%, #FF651D 100%), radial-gradient(100% 100% at 50% 100%, #4E49D5 0%, #7772FF 100%);',
+                bgImg: "url('../public/bgPawel.jpg')",
             },
             fontSize: {
                 size10: '0.625rem',
                 size11: '0.688rem',
                 size12: '0.75rem',
                 size18: '1.125rem',
+                size20: '1.25rem',
                 size22: '1.375rem',
                 size24: '1.5rem',
                 size26: '1.625rem',
@@ -70,6 +68,7 @@ module.exports = {
                 size40: '2.5rem',
                 size50: '3.125rem',
                 size70: '4.375rem',
+                size76: '4.8rem',
             },
             boxShadow: {
                 settingsEdit: '0px 20px 40px 0px rgba(0, 0, 0, 0.2)',

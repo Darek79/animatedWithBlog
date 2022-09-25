@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'react';
-import { LazyMotion, domAnimation, LazyProps } from 'framer-motion';
+import { ReactHTML } from 'react';
+import { LazyMotion, domAnimation, HTMLMotionProps } from 'framer-motion';
 
-export default function LazyMotionWrapper({ children }: HTMLAttributes<HTMLDivElement>): JSX.Element {
+type htmlTags = keyof ReactHTML;
+
+export default function LazyMotionWrapper({ children }: HTMLMotionProps<htmlTags>): JSX.Element {
     return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
 }

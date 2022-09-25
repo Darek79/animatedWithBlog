@@ -1,7 +1,7 @@
 import { SVGAttributes } from 'react';
 
 interface ClosingXI extends SVGAttributes<SVGElement> {
-    clickFn(): void;
+    clickFn?: () => void;
 }
 
 export default function ClosingX({ clickFn, ...rest }: ClosingXI): JSX.Element {

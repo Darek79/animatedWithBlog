@@ -6,9 +6,12 @@ export { default as LazyMotionWrapper } from './atoms/LazyMotionWrapper';
 
 //MOLECULES
 
-export { default as Navigation } from './molecules/Navigation';
+export { default as PageStructure } from './molecules/PageStructure';
 export { default as ImageWrapped } from './molecules/ImageWrapped';
 export { default as Sidebar } from './molecules/Sidebar';
+export { default as Navigation } from './molecules/Navigation';
+export { default as Title } from './molecules/Title';
+export { default as Article } from './molecules/Article';
 
 //SVG
 
