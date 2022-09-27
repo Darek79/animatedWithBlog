@@ -33,7 +33,7 @@ export const liItem = {
     },
 };
 
-export default function PageSplitter({ text = "SEE WHAT WE'VE WRITTEN LATELY", ...rest }: PageSplitterI): JSX.Element {
+export default function PageSplitter({ text = 'SEE WHAT WE\'VE WRITTEN LATELY', ...rest }: PageSplitterI): JSX.Element {
     const spanRef = useRef<HTMLParagraphElement>(null);
     const inView = useInView(spanRef, { amount: 'all', once: true });
 
