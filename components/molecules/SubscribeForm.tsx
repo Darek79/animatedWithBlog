@@ -14,13 +14,6 @@ interface Data {
     readonly elements: Properties;
 }
 
-function validateEmail(mail: string) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-        return true;
-    }
-    return false;
-}
-
 const messageAnim = {
     open: {
         y: '0%',
@@ -43,13 +36,7 @@ export default function SubscribeForm(): JSX.Element {
     const emailRef = useRef<string | undefined>('');
     function formSubmit(event: FormEvent<Data>) {
         event.preventDefault();
-        console.log(event.currentTarget.elements.subscribe?.value);
 
-        if (!validateEmail(event.currentTarget.elements.subscribe?.value as string)) {
-            console.log('no valid email');
-            formRef.current?.reset();
-            return null;
-        }
         setLoading(p => !p);
         emailRef.current = event.currentTarget.elements.subscribe?.value;
 

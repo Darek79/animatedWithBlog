@@ -11,7 +11,7 @@ export default async function emailHandler(req: NextApiRequest, res: NextApiResp
     const { email } = req.query;
 
     console.log(process.env.MAILER_HOST, 'test');
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
         host: process.env.MAILER_HOST,
         port: 587,
         secure: false,
@@ -21,7 +21,7 @@ export default async function emailHandler(req: NextApiRequest, res: NextApiResp
         },
     });
 
-    let info: SentMessageInfo = await transporter.sendMail({
+    const info: SentMessageInfo = await transporter.sendMail({
         from: email as string,
         to: 'dkdevtech@gmail.com',
         subject: 'subscipttion on blog',
@@ -29,7 +29,7 @@ export default async function emailHandler(req: NextApiRequest, res: NextApiResp
     });
 
     if (info.messageId) {
-        res.status(200).json({ message: `Thanks for subscribing! Please check your email` });
+        res.status(200).json({ message: 'Thanks for subscribing! Please check your email' });
         return null;
     }
     res.status(400).json({ message: 'There was an error' });

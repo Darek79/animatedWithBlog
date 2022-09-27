@@ -1,6 +1,14 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import { useEffect } from 'react';
+import PiwikPro from '@piwikpro/react-piwik-pro';
 
 export default function Document() {
+    useEffect(() => {
+        if (window) {
+            PiwikPro.initialize('cd040d5e-8eb4-4c4c-acba-cf70d3d56428', 'https://dkdevtech.containers.piwik.pro');
+        }
+    }, []);
+
     return (
         <Html>
             <Head>
