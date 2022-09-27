@@ -12,6 +12,9 @@ export { default as Sidebar } from './molecules/Sidebar';
 export { default as Navigation } from './molecules/Navigation';
 export { default as Title } from './molecules/Title';
 export { default as Article } from './molecules/Article';
+export { default as SubscribeForm } from './molecules/SubscribeForm';
+export { default as FooterList } from './molecules/FooterList';
+export { default as FooterListItem } from './molecules/FooterListItem';
 
 //SVG
 

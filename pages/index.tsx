@@ -10,6 +10,9 @@ import {
     Sidebar,
     Navigation,
     Title,
+    SubscribeForm,
+    FooterList,
+    FooterListItem,
 } from 'components';
 import { motion } from 'framer-motion';
 import daigo from 'public/daigo_white.svg';
@@ -19,6 +22,7 @@ import { navigationArray } from 'utils/pageArrays';
 import { hoverVariant } from 'Variants/variants';
 import bgPawel from 'public/bgPawel.jpg';
 import frontTop from 'public/frontTop.jpeg';
+import { about, features, memeberShip, social } from 'utils/pageArrays';
 
 // import { createClient } from 'next-sanity';
 
@@ -174,7 +178,7 @@ const Home: NextPage = () => {
                 </Box>
                 {/* <Box className="relative -top-16 px-5"></Box> */}
                 <Box className="-translate-y-10 px-5">
-                    <Box className="bg-bgImg grid grid-cols-2 gap-3 px-2 py-4">
+                    <Box className="bg-bgImg bg-left-bottom grid grid-cols-2 gap-3 px-2 py-4">
                         <p className="text-pageWhite col-span-2 relative border-t-default border-pageWhite text-size18">
                             SEE WHAT WE&apos;VE WRITTEN LATELY
                         </p>
@@ -201,26 +205,34 @@ const Home: NextPage = () => {
             </PageStructure>
             <PageStructure htmlTag="footer" className="bg-navBg px-5 -translate-y-10">
                 <ImageWrapped
-                    className="w-[100px] h-[100px]"
+                    className="w-[150px] h-[100px]"
                     imageComp={<Image src={daigo} layout="fill" objectFit="contain" />}
                 />
-                <Box>
-                    <p className="text-pageWhite col-span-2 relative border-t-default border-pageWhite text-size18">
-                        SEE WHAT WE&apos;VE WRITTEN LATELY
-                    </p>
-                    <form className="flex justify-center border-b-2 w-fit">
-                        <label htmlFor="subscribe">
-                            <input
-                                name="subscribe"
-                                className="appearance-none outline-none border-none bg-navBg text-pageWhite"
-                            />
-                        </label>
-                        <div className="relative top-1">
-                            <button className="text-pageWhite" type="submit">
-                                Subscribe
-                            </button>
-                        </div>
-                    </form>
+                <SubscribeForm />
+                <Box className="grid grid-cols-2 gap-4 mt-5">
+                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="Social">
+                        <ul className="grid gap-y-3">
+                            {social.map(el => (
+                                <li key={el.link} className="flex gap-2 items-center text-base hover:underline">
+                                    <ImageWrapped
+                                        className="relative flex items-center"
+                                        imageComp={<Image src={el.img} />}
+                                    />
+
+                                    <Link href={`/${el.link}`}>{el.link}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </FooterList>
+                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="About">
+                        <FooterListItem className="text-pageWhite text-base grid gap-y-3" listArray={about} />
+                    </FooterList>
+                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="Features">
+                        <FooterListItem className="text-pageWhite text-base grid gap-y-3" listArray={features} />
+                    </FooterList>
+                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="Membership">
+                        <FooterListItem className="text-pageWhite text-base grid gap-y-3" listArray={memeberShip} />
+                    </FooterList>
                 </Box>
             </PageStructure>
         </div>

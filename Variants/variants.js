@@ -30,3 +30,7 @@ export const liItem = {
         },
     },
 };
+
+export const whileTap = {
+    scale: 0.8,
+};
