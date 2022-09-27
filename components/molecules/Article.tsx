@@ -11,7 +11,7 @@ interface ArticleI extends HTMLAttributes<HTMLDivElement> {
     alt: ImageProps['alt'];
     withoutDescription?: boolean;
     description?: string;
-    aspect: 'square' | 'story';
+    aspect: 'square' | 'story' | 'mixed';
 }
 
 export default function Article({
@@ -33,6 +33,7 @@ export default function Article({
         'w-full duration-200 hover:scale-110': true,
         'aspect-square': aspect === 'square',
         'aspect-[6/9]': aspect === 'story',
+        'aspect-square md:aspect-[6/9]': aspect === 'mixed',
     });
 
     return (

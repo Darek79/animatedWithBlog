@@ -42,9 +42,13 @@ module.exports = {
                 agreementW: '62.5rem',
             },
             gridTemplateColumns: {
+                six: 'repeat(12,minmax(0,0.15fr))',
                 mobile: '1fr',
                 tablet: '1fr',
-                desktop: 'auto minmax(10%,600px) minmax(10%,840px) auto',
+                desktop: 'auto 1fr auto',
+            },
+            gridTemplateRows: {
+                six: 'repeat(11,minmax(0,0.15fr))',
             },
             lineHeight: {
                 title: '3.25rem',

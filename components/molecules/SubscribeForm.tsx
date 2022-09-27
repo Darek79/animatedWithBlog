@@ -1,6 +1,6 @@
 import { Box, LazyMotionWrapper, ImageWrapped } from 'components';
-import { m } from 'framer-motion';
-import { FormEvent, useRef, useState, useEffect } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
+import { FormEvent, useRef, useState, useEffect, HTMLAttributes } from 'react';
 import classname from 'classnames';
 import spinner from 'public/RollingSpinner.svg';
 import Image from 'next/image';
@@ -29,7 +29,11 @@ const messageAnim = {
     },
 };
 
-export default function SubscribeForm(): JSX.Element {
+interface SubscribeFormI extends HTMLAttributes<HTMLDivElement> {
+    transparent?: boolean;
+}
+
+export default function SubscribeForm({ transparent, ...rest }: SubscribeFormI): JSX.Element {
     const [loading, setLoading] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
     const formRef = useRef<HTMLFormElement>(null);
@@ -54,9 +58,15 @@ export default function SubscribeForm(): JSX.Element {
         }
     }, [loading]);
 
+    const inputClasses = classname({
+        'appearance-none outline-none border-none text-pageWhite': true,
+        'bg-transparent': transparent,
+        'bg-navBg': !transparent,
+    });
+
     return (
-        <Box className="w-full grid gap-y-4 overflow-hidden">
-            <p className="text-pageWhite col-span-2 relative text-size18">
+        <Box {...rest}>
+            <p className="text-pageWhite col-span-2 relative w-[80%] text-size18 mb-4">
                 GET THE EMAIL NEWSLETTER AND UNLOCK ACCESS TO MEMBERS-ONLY CONTENT AND UPDATES
             </p>
             <form className="flex justify-between col-span-2 border-b-2 w-full" onSubmit={formSubmit} ref={formRef}>
@@ -66,19 +76,21 @@ export default function SubscribeForm(): JSX.Element {
                         type="email"
                         required={true}
                         placeholder="Your email address"
-                        className="appearance-none outline-none border-none bg-navBg text-pageWhite"
+                        className={inputClasses}
                     />
                 </label>
                 <div className="relative flex w-fit">
-                    {!loading ? (
-                        <LazyMotionWrapper>
-                            <m.button whileTap={whileTap} className="text-pageWhite" type="submit">
-                                Subscribe
-                            </m.button>
-                        </LazyMotionWrapper>
-                    ) : (
-                        <ImageWrapped className="w-5 -translate-x-5" imageComp={<Image src={spinner} />} />
-                    )}
+                    <AnimatePresence>
+                        {!loading ? (
+                            <LazyMotionWrapper>
+                                <m.button whileTap={whileTap} className="text-pageWhite" type="submit">
+                                    Subscribe
+                                </m.button>
+                            </LazyMotionWrapper>
+                        ) : (
+                            <ImageWrapped className="w-5 -translate-x-5" imageComp={<Image src={spinner} />} />
+                        )}
+                    </AnimatePresence>
                 </div>
             </form>
             <div className="overflow-hidden w-full col-span-2 h-fit">

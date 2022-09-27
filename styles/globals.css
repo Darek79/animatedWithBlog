@@ -29,7 +29,7 @@
         @apply w-fit text-size24 text-inherit cursor-pointer font-Marcellus;
     }
     .artilceItemMain {
-        @apply relative grid gap-y-3 mt-5 text-size40 text-pageWhite leading-none cursor-pointer;
+        @apply relative grid gap-y-3 text-size40 text-pageWhite leading-none cursor-pointer;
     }
     .articleDescription {
         @apply font-sans text-xs text-pageWhite;
