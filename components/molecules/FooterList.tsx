@@ -1,5 +1,4 @@
 import { HTMLAttributes } from 'react';
-import Link from 'next/link';
 
 export default function FooterList({ children, title, ...rest }: HTMLAttributes<HTMLDivElement>): JSX.Element {
     return (

@@ -1,4 +1,3 @@
-import Image, { ImageProps } from 'next/image';
 import { ReactNode } from 'react';
 import type { HTMLAttributes } from 'react';
 

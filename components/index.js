@@ -17,6 +17,9 @@ export { default as FooterList } from './molecules/FooterList';
 export { default as FooterListItem } from './molecules/FooterListItem';
 export { default as PageWrapper } from './molecules/PageWrapper';
 
+//ORGANISM
+export { default as Footer } from './organism/Footer';
+
 //SVG
 
 export { default as SearchIconSVG } from './SVG/SearchIconSVG';

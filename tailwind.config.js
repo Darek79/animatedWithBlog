@@ -48,7 +48,7 @@ module.exports = {
                 desktop: 'auto 1fr auto',
             },
             gridTemplateRows: {
-                six: 'repeat(11,minmax(0,0.15fr))',
+                six: 'repeat(9,minmax(0,0.15fr))',
             },
             lineHeight: {
                 title: '3.25rem',

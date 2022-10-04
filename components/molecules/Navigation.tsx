@@ -9,10 +9,14 @@ import { m } from 'framer-motion';
 export default function Navigation(): JSX.Element {
     return (
         <Box className="flex items-center w-full h-[70px] text-pageWhite">
-            <ImageWrapped
-                className="w-[100px] h-full"
-                imageComp={<Image src={daigo} layout="fill" objectFit="contain" />}
-            />
+            <Link href="/">
+                <a style={{ width: '100px', height: '100%' }}>
+                    <ImageWrapped
+                        className="w-[100px] h-full"
+                        imageComp={<Image src={daigo} alt="logo" layout="fill" objectFit="contain" />}
+                    />
+                </a>
+            </Link>
             <LazyMotionWrapper>
                 <m.ul
                     className="hidden md:flex gap-x-5 items-center ml-auto navItem"

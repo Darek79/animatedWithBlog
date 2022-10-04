@@ -9,6 +9,7 @@ interface ArticleI extends HTMLAttributes<HTMLDivElement> {
     href: string;
     src: ImageProps['src'];
     alt: ImageProps['alt'];
+    priority?: ImageProps['priority'];
     withoutDescription?: boolean;
     description?: string;
     aspect: 'square' | 'story' | 'mixed';
@@ -19,9 +20,8 @@ export default function Article({
     withoutDescription,
     description,
     href,
-    src,
-    alt,
     aspect,
+    priority,
     ...rest
 }: ArticleI): JSX.Element {
     const descriptionClasses = classnames({
@@ -30,7 +30,7 @@ export default function Article({
     });
 
     const imgClasses = classnames({
-        'w-full duration-200 hover:scale-110': true,
+        'w-full duration-700 hover:scale-110': true,
         'aspect-square': aspect === 'square',
         'aspect-[6/9]': aspect === 'story',
         'aspect-square md:aspect-[6/9]': aspect === 'mixed',
@@ -39,7 +39,7 @@ export default function Article({
     return (
         <article {...rest}>
             <Link href={href}>
-                <>
+                <a>
                     <Box className="overflow-hidden w-full">
                         <ImageWrapped
                             className={imgClasses}
@@ -50,6 +50,7 @@ export default function Article({
                                     layout="fill"
                                     objectFit="cover"
                                     objectPosition="center"
+                                    priority={priority}
                                 />
                             }
                         />
@@ -57,7 +58,7 @@ export default function Article({
                     <h2 className="hover:underline hover:decoration-2 text-inherit pt-3">{description}</h2>
 
                     {children}
-                </>
+                </a>
             </Link>
             <Box className={descriptionClasses}>
                 <p>by Liza Harber and Daryl Wehner in Creative</p>

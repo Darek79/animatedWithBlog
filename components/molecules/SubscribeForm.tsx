@@ -88,7 +88,10 @@ export default function SubscribeForm({ transparent, ...rest }: SubscribeFormI):
                                 </m.button>
                             </LazyMotionWrapper>
                         ) : (
-                            <ImageWrapped className="w-5 -translate-x-5" imageComp={<Image src={spinner} />} />
+                            <ImageWrapped
+                                className="w-5 -translate-x-5"
+                                imageComp={<Image alt="spinner" src={spinner} />}
+                            />
                         )}
                     </AnimatePresence>
                 </div>

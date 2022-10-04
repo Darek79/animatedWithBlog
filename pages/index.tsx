@@ -2,40 +2,19 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import {
     PageStructure,
-    ImageWrapped,
-    SearchIconSVG,
     Article,
     Box,
-    Hamburger,
     Sidebar,
     Navigation,
     Title,
     SubscribeForm,
-    FooterList,
-    FooterListItem,
     MotionBox,
     PageWrapper,
     PageSplitter,
+    Footer,
 } from 'components';
-import { motion } from 'framer-motion';
-import daigo from 'public/daigo_white.svg';
-import Image from 'next/image';
-import Link from 'next/link';
-import { navigationArray } from 'utils/pageArrays';
-import { hoverVariant } from 'Variants/variants';
-import bgPawel from 'public/bgPawel.jpg';
 import frontTop from 'public/frontTop.jpeg';
-import { about, features, memeberShip, social } from 'utils/pageArrays';
 import { ulItem } from 'Variants/variants';
-
-// import { createClient } from 'next-sanity';
-
-// const client = createClient({
-//     projectId: '3zonnd0w',
-//     dataset: 'production',
-//     apiVersion: '2022-08-28',
-//     useCdn: false,
-// });
 
 const heroAnim = {
     active: {
@@ -66,24 +45,26 @@ const Home: NextPage = () => {
                     variants={ulItem}
                     initial="inactive"
                     animate="active"
-                    className="grid md:grid-cols-six gap-x-5 md:grid-rows-six bg-bgImg overflow-hidden px-5 pt-10 pb-40"
+                    className="grid md:grid-cols-six gap-x-5 px-5 md:grid-rows-six bg-bgImg overflow-hidden pt-10 pb-40"
                 >
                     <Title
-                        className="relative overflow-hidden md:col-span-full md:row-start-1 md:row-end-5"
+                        className="relative overflow-hidden md:col-span-full md:row-start-1 md:row-end-3 self-center"
+                        titleClasses="text-pageWhite text-[calc(8vw+5vw)] lg:text-[6rem] font-Bellefair leading-none uppercase text-center"
                         variants={heroAnim}
-                        title="Thoughts, stories and ideas"
+                        title="Lorem Ipsum"
                     />
-                    <MotionBox className="md:row-start-5 md:col-span-6" variants={heroAnim}>
+                    <MotionBox className="md:row-start-3 md:col-span-6" variants={heroAnim}>
                         <Article
                             aspect="square"
                             description="Being unique is better than being perfect"
                             className="artilceItemMain"
-                            href="#"
+                            href="/blog/article"
                             src={frontTop}
                             alt="front_image"
+                            priority={true}
                         />
                     </MotionBox>
-                    <Box className="grid grid-cols-2 md:gap-y-10 mt-10 md:mt-0 gap-5 md:row-start-5 md:col-start-7 md:col-span-6">
+                    <Box className="grid grid-cols-2 md:gap-y-10 mt-10 md:mt-0 gap-5 md:row-start-3 md:col-start-7 md:col-span-6">
                         <MotionBox className="col-span-2 w-full hidden md:block" variants={heroAnim}>
                             <SubscribeForm className="lg:w-3/4" transparent />
                         </MotionBox>
@@ -93,7 +74,19 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
+                                src={frontTop}
+                                alt="front_image"
+                                priority={true}
+                            />
+                        </MotionBox>
+                        <MotionBox variants={heroAnim}>
+                            <Article
+                                aspect="square"
+                                className="relative text-pageWhite leading-none cursor-pointer text-size20"
+                                withoutDescription
+                                description="Being unique is better than being perfect"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
@@ -104,7 +97,7 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
@@ -115,18 +108,7 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
-                                src={frontTop}
-                                alt="front_image"
-                            />
-                        </MotionBox>
-                        <MotionBox variants={heroAnim}>
-                            <Article
-                                aspect="square"
-                                className="relative text-pageWhite leading-none cursor-pointer text-size20"
-                                withoutDescription
-                                description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
@@ -141,7 +123,7 @@ const Home: NextPage = () => {
                             className="relative text-pageWhite leading-none cursor-pointer text-size20"
                             withoutDescription
                             description="Being unique is better than being perfect"
-                            href="#"
+                            href="/blog/article"
                             src={frontTop}
                             alt="front_image"
                         />
@@ -150,7 +132,7 @@ const Home: NextPage = () => {
                             className="relative text-pageWhite leading-none cursor-pointer text-size20"
                             withoutDescription
                             description="Being unique is better than being perfect"
-                            href="#"
+                            href="/blog/article"
                             src={frontTop}
                             alt="front_image"
                         />
@@ -160,7 +142,7 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
@@ -169,7 +151,7 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
@@ -178,7 +160,7 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
@@ -187,14 +169,13 @@ const Home: NextPage = () => {
                                 className="relative text-pageWhite leading-none cursor-pointer text-size20"
                                 withoutDescription
                                 description="Being unique is better than being perfect"
-                                href="#"
+                                href="/blog/article"
                                 src={frontTop}
                                 alt="front_image"
                             />
                         </Box>
                     </Box>
                 </Box>
-                {/* <Box className="relative -top-16 px-5"></Box> */}
                 <Box className="-translate-y-10 px-5">
                     <Box className="bg-bgImg bg-left-bottom grid grid-cols-2 gap-3 px-2 py-4">
                         <PageSplitter className="overflow-hidden w-full h-fit col-span-2" />
@@ -203,7 +184,7 @@ const Home: NextPage = () => {
                             className="relative text-pageWhite leading-none cursor-pointer text-size20"
                             withoutDescription
                             description="Being unique is better than being perfect"
-                            href="#"
+                            href="/blog/article"
                             src={frontTop}
                             alt="front_image"
                         />
@@ -212,7 +193,7 @@ const Home: NextPage = () => {
                             className="relative text-pageWhite leading-none cursor-pointer text-size20"
                             withoutDescription
                             description="Being unique is better than being perfect"
-                            href="#"
+                            href="/blog/article"
                             src={frontTop}
                             alt="front_image"
                         />
@@ -220,38 +201,7 @@ const Home: NextPage = () => {
                 </Box>
             </PageStructure>
             <PageStructure htmlTag="footer" className="bg-navBg px-5 -translate-y-10 lg:flex">
-                <Box className="w-full md:w-3/4 lg:w-1/2">
-                    <ImageWrapped
-                        className="w-[150px] h-[100px]"
-                        imageComp={<Image src={daigo} layout="fill" objectFit="contain" />}
-                    />
-                    <SubscribeForm className="overflow-hidden" />
-                </Box>
-                <Box className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5 w-full">
-                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="Social">
-                        <ul className="grid gap-y-3">
-                            {social.map(el => (
-                                <li key={el.link} className="flex gap-2 items-center text-base hover:underline">
-                                    <ImageWrapped
-                                        className="relative flex items-center"
-                                        imageComp={<Image src={el.img} />}
-                                    />
-
-                                    <Link href={`/${el.link}`}>{el.link}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </FooterList>
-                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="About">
-                        <FooterListItem className="text-pageWhite text-base grid gap-y-3" listArray={about} />
-                    </FooterList>
-                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="Features">
-                        <FooterListItem className="text-pageWhite text-base grid gap-y-3" listArray={features} />
-                    </FooterList>
-                    <FooterList className="text-pageWhite text-size24 md:text-size32" title="Membership">
-                        <FooterListItem className="text-pageWhite text-base grid gap-y-3" listArray={memeberShip} />
-                    </FooterList>
-                </Box>
+                <Footer />
             </PageStructure>
         </PageWrapper>
     );
@@ -260,9 +210,29 @@ const Home: NextPage = () => {
 export default Home;
 
 // export async function getStaticProps() {
-//     const article = await client.fetch(`*[_type == "article"]`);
-//     console.log(article, 'data');
+//     // const result: ApolloQueryResult<BLOG_PREVIEW> = await client.query({
+//     //     query: gql`
+//     //         query BlogPost {
+//     //             blogPostCollection(skip: 0, limit: 5) {
+//     //                 items {
+//     //                     blogImg {
+//     //                         width
+//     //                         height
+//     //                         fileName
+//     //                         description
+//     //                         url
+//     //                     }
+//     //                     blogTxtPreview {
+//     //                         json
+//     //                     }
+//     //                     slug
+//     //                 }
+//     //             }
+//     //         }
+//     //     `,
+//     // });
+//     // console.log(result, '1');
 //     return {
-//         props: { article },
+//         props: {},
 //     };
 // }

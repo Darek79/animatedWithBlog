@@ -34,3 +34,63 @@ export const liItem = {
 export const whileTap = {
     scale: 0.8,
 };
+
+export const variantsSidebar = {
+    active: {
+        x: '0%',
+        transition: {
+            circIn: [0.15, 0.45, 0.65, 0.45],
+        },
+    },
+    inactive: {
+        x: '-100%',
+    },
+    exit: {
+        x: '-100%',
+        transition: {
+            circOut: [0.15, 0.45, 0.65, 0.45],
+        },
+    },
+};
+
+export const ulItemSidebar = {
+    active: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.3,
+            delayChildren: 0.2,
+        },
+    },
+    inactive: {
+        opacity: 0,
+    },
+    exit: {
+        opacity: 0,
+    },
+};
+export const navItemsSidebar = {
+    active: {
+        y: 0,
+        opacity: 1,
+        color: '#fafafa',
+
+        transition: {
+            duration: 1,
+        },
+    },
+    inactive: {
+        y: 20,
+        opacity: 0,
+        color: '#202833',
+        transition: {
+            duration: 0.2,
+        },
+    },
+    exit: {
+        opacity: 0,
+        color: '#202833',
+        transition: {
+            duration: 0.2,
+        },
+    },
+};

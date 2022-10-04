@@ -1,5 +1,5 @@
 import { HTMLAttributes, useRef } from 'react';
-import { LazyMotionWrapper, Box, MotionBox } from 'components';
+import { LazyMotionWrapper } from 'components';
 import { m, useInView } from 'framer-motion';
 interface PageSplitterI extends HTMLAttributes<HTMLDivElement> {
     text?: string;
@@ -35,7 +35,7 @@ export const liItem = {
 
 export default function PageSplitter({ text = 'SEE WHAT WE\'VE WRITTEN LATELY', ...rest }: PageSplitterI): JSX.Element {
     const spanRef = useRef<HTMLParagraphElement>(null);
-    const inView = useInView(spanRef, { amount: 'all', once: true });
+    const inView = useInView(spanRef, { amount: 'all', once: false, margin: '-100px 0px' });
 
     return (
         <LazyMotionWrapper>

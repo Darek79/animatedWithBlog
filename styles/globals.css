@@ -37,4 +37,10 @@
     .articleItemTextHover {
         @apply border-b-default cursor-pointer w-fit duration-200 border-transparent hover:border-pageWhite;
     }
+    .pArticle {
+        @apply text-[4vw] md:text-[1.2rem];
+    }
+    .hArticle {
+        @apply text-[6vw] md:text-[2rem];
+    }
 }
