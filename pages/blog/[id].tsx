@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Document } from '@contentful/rich-text-types';
 import { HTMLAttributes } from 'react';
 import { PageWrapper, Sidebar, PageStructure, Navigation, MotionBox, Footer, Box } from 'components';
+import picArticle from 'public/picArticle.jpeg';
 // import { client } from 'utils/appolloClient';
 // import { gql, ApolloQueryResult } from '@apollo/client';
 // import type { BLOG_ARTICLE } from 'utils/articleTypes';
@@ -59,7 +60,7 @@ const img = {
         height: 1200,
         fileName: 'blogImg3.jpeg',
         description: 'blogImg3',
-        url: 'https://images.ctfassets.net/1am6o6x4uocu/2X6hk4hsN7sOJylEbBmKrI/23d1d874ca5f20610b09206019d65aea/blogImg3.jpeg',
+        url: picArticle,
     },
 };
 
@@ -101,7 +102,7 @@ const BlogPost: NextPage = () => {
                         {documentToReactComponents(document as Document, options)}
                     </MotionBox>
                     <MotionBox className="aspect-[6/9] mt-10 md:mt-0 relative w-full">
-                        <Image src={img.blogImg.url} alt="article_img" layout="fill" />
+                        <Image src={img.blogImg.url} alt="article_img" layout="fill" priority={true}/>
                     </MotionBox>
                 </MotionBox>
                 <Box className="px-5 grid gap-y-5 text-pageWhite pt-10 pb-40">

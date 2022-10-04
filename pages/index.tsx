@@ -13,7 +13,7 @@ import {
     PageSplitter,
     Footer,
 } from 'components';
-import frontTop from 'public/frontTop.jpeg';
+import frontTop from 'public/frontTop.webp';
 import { ulItem } from 'Variants/variants';
 
 const heroAnim = {

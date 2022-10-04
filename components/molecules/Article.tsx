@@ -2,7 +2,7 @@ import { ImageWrapped, Box } from 'components';
 import Link from 'next/link';
 import classnames from 'classnames';
 import Image, { ImageProps } from 'next/image';
-import frontTop from 'public/frontTop.jpeg';
+import frontTop from 'public/frontTop.webp';
 import { HTMLAttributes } from 'react';
 
 interface ArticleI extends HTMLAttributes<HTMLDivElement> {
