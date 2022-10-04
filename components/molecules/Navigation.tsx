@@ -8,7 +8,7 @@ import { m } from 'framer-motion';
 
 export default function Navigation(): JSX.Element {
     return (
-        <Box className="flex items-center w-full h-[70px] text-pageWhite">
+        <Box className="flex items-center justify-between w-full h-[70px] text-pageWhite">
             <Link href="/">
                 <a style={{ width: '100px', height: '100%' }}>
                     <ImageWrapped
@@ -54,8 +54,8 @@ export default function Navigation(): JSX.Element {
                         </Link>
                     </li>
                 </m.ul>
-                <Hamburger className="w-fit h-8 ml-auto cursor-pointer md:hidden z-50" />
             </LazyMotionWrapper>
+            <Hamburger className="w-8 h-8  cursor-pointer md:hidden z-50" />
         </Box>
     );
 }
