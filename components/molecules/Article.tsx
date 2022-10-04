@@ -30,7 +30,7 @@ export default function Article({
     });
 
     const imgClasses = classnames({
-        'w-full duration-700 hover:scale-110': true,
+        'w-full duration-700 hover:scale-105': true,
         'aspect-square': aspect === 'square',
         'aspect-[6/9]': aspect === 'story',
         'aspect-square md:aspect-[6/9]': aspect === 'mixed',

@@ -100,7 +100,7 @@ const BlogPost: NextPage = () => {
                     <MotionBox className="text-pageWhite relative">
                         {documentToReactComponents(document as Document, options)}
                     </MotionBox>
-                    <MotionBox className="aspect-[6/9] mt-10 md:mt-0 relative">
+                    <MotionBox className="aspect-[6/9] mt-10 md:mt-0 relative w-full">
                         <Image src={img.blogImg.url} alt="article_img" layout="fill" />
                     </MotionBox>
                 </MotionBox>
