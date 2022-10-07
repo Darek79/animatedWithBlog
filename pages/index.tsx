@@ -41,6 +41,7 @@ const Home: NextPage = () => {
                 <Navigation />
             </PageStructure>
             <PageStructure htmlTag="main" className="bg-navBg">
+                <> {console.log(frontTop.src)}</>frontTop.src
                 <MotionBox
                     variants={ulItem}
                     initial="inactive"
@@ -59,7 +60,7 @@ const Home: NextPage = () => {
                             description="Being unique is better than being perfect"
                             className="artilceItemMain"
                             href="/blog/article"
-                            src={frontTop}
+                            src={frontTop.src}
                             alt="front_image"
                             priority={true}
                         />
@@ -75,7 +76,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                                 priority={true}
                             />
@@ -87,7 +88,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                         </MotionBox>
@@ -98,7 +99,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                         </MotionBox>
@@ -109,7 +110,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                         </MotionBox>
@@ -124,7 +125,7 @@ const Home: NextPage = () => {
                             withoutDescription
                             description="Being unique is better than being perfect"
                             href="/blog/article"
-                            src={frontTop}
+                            src={frontTop.src}
                             alt="front_image"
                         />
                         <Article
@@ -133,7 +134,7 @@ const Home: NextPage = () => {
                             withoutDescription
                             description="Being unique is better than being perfect"
                             href="/blog/article"
-                            src={frontTop}
+                            src={frontTop.src}
                             alt="front_image"
                         />
                         <Box className="grid w-full grid-cols-2 md:grid-cols-4 gap-x-5 col-span-2 md:mt-10">
@@ -143,7 +144,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                             <Article
@@ -152,7 +153,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                             <Article
@@ -161,7 +162,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                             <Article
@@ -170,7 +171,7 @@ const Home: NextPage = () => {
                                 withoutDescription
                                 description="Being unique is better than being perfect"
                                 href="/blog/article"
-                                src={frontTop}
+                                src={frontTop.src}
                                 alt="front_image"
                             />
                         </Box>
@@ -185,7 +186,7 @@ const Home: NextPage = () => {
                             withoutDescription
                             description="Being unique is better than being perfect"
                             href="/blog/article"
-                            src={frontTop}
+                            src={frontTop.src}
                             alt="front_image"
                         />
                         <Article
@@ -194,7 +195,7 @@ const Home: NextPage = () => {
                             withoutDescription
                             description="Being unique is better than being perfect"
                             href="/blog/article"
-                            src={frontTop}
+                            src={frontTop.src}
                             alt="front_image"
                         />
                     </Box>
