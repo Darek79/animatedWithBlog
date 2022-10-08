@@ -41,7 +41,6 @@ const Home: NextPage = () => {
                 <Navigation />
             </PageStructure>
             <PageStructure htmlTag="main" className="bg-navBg">
-                <> {console.log(frontTop.src)}</>frontTop.src
                 <MotionBox
                     variants={ulItem}
                     initial="inactive"
