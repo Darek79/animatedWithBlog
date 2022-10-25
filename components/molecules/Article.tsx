@@ -31,9 +31,9 @@ export default function Article({
 
     const imgClasses = classnames({
         'w-full duration-700 hover:scale-105': true,
-        'aspect-square': aspect === 'square',
-        'aspect-[6/9]': aspect === 'story',
-        'aspect-square md:aspect-[6/9]': aspect === 'mixed',
+        aspect1_1: aspect === 'square',
+        'aspect6_9 ': aspect === 'story',
+        'aspect1_1 md:aspect6_9': aspect === 'mixed',
     });
 
     return (

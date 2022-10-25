@@ -45,7 +45,7 @@ const document = {
                 {
                     data: {},
                     marks: [],
-                    value: 'by Daryl Wehner in Idea, People',
+                    value: '',
                     nodeType: 'text',
                 },
             ],
@@ -97,12 +97,12 @@ const BlogPost: NextPage = () => {
                 <Navigation />
             </PageStructure>
             <PageStructure htmlTag="main" className="bg-navBg">
-                <MotionBox className="bg-bgImg px-5 py-10 w-full aspect-[9/16] md:flex gap-8 md:aspect-video">
+                <MotionBox className="bg-bgImg px-5 py-10 w-full aspect9_16 md:flex gap-8">
                     <MotionBox className="text-pageWhite relative">
                         {documentToReactComponents(document as Document, options)}
                     </MotionBox>
-                    <MotionBox className="aspect-[6/9] mt-10 md:mt-0 relative w-full">
-                        <Image src={img.blogImg.url} alt="article_img" layout="fill" priority={true}/>
+                    <MotionBox className="aspect6_9 md:aspect8_5 mt-10 md:mt-0 relative w-full">
+                        <Image src={img.blogImg.url} alt="article_img" layout="fill" priority={true} />
                     </MotionBox>
                 </MotionBox>
                 <Box className="px-5 grid gap-y-5 text-pageWhite pt-10 pb-40">

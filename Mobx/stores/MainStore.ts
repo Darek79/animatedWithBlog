@@ -6,13 +6,12 @@ export interface MainStoreI {
 }
 
 class MainStore implements MainStoreI {
-    sidebarOpen: boolean = false;
+    sidebarOpen = false;
     constructor() {
         makeAutoObservable(this);
     }
     sidebarHandler() {
         this.sidebarOpen = !this.sidebarOpen;
-        console.log(this.sidebarOpen, 'click');
     }
 }
 

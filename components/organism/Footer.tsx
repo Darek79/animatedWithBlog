@@ -14,7 +14,7 @@ export default function Footer(): JSX.Element {
                 />
                 <SubscribeForm className="overflow-hidden" />
             </Box>
-            <Box className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5 w-full">
+            <Box className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5 w-full pb-5">
                 <FooterList className="text-pageWhite text-size24 md:text-size32" title="Social">
                     <ul className="grid gap-y-3">
                         {social.map(el => (

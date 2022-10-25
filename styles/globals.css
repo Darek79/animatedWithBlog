@@ -16,12 +16,31 @@
     select:-webkit-autofill:hover,
     input:-webkit-autofill:focus {
         -webkit-text-fill-color: #fafafa;
+        box-shadow: 0 0 0px 1000px #202833 inset;
         -webkit-box-shadow: 0 0 0px 1000px #202833 inset;
         transition: background-color 5000s ease-in-out 0s;
     }
 }
 
 @layer components {
+    .aspect21_9 {
+        padding-top: 42.85%;
+    }
+    .aspect16_9 {
+        padding-top: 56.25%;
+    }
+    .aspect9_16 {
+        padding-top: 177%;
+    }
+    .aspect6_9 {
+        padding-top: 150%;
+    }
+    .aspect8_5 {
+        padding-top: 42.5%;
+    }
+    .aspect1_1 {
+        padding-top: 100%;
+    }
     .iconSize {
         @apply w-6 h-6;
     }
