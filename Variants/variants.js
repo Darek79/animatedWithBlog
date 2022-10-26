@@ -94,3 +94,29 @@ export const navItemsSidebar = {
         },
     },
 };
+
+export const searchbarAnim = {
+    open: {
+        y: '0%',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        transition: {
+            ease: 'easeOut',
+            duration: 0.5,
+            backgroundColor: { delay: 1 },
+        },
+    },
+    closed: {
+        y: '-100%',
+        backgroundColor: 'rgba(0,0,0,0)',
+        transition: {
+            ease: 'linear',
+            duration: 0.2,
+        },
+    },
+};
+
+export const searchItemAnim = {
+    initial: { opacity: 0, y: 40 },
+    enter: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 40 },
+};

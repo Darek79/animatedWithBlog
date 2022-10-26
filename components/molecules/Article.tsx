@@ -2,7 +2,6 @@ import { ImageWrapped, Box } from 'components';
 import Link from 'next/link';
 import classnames from 'classnames';
 import Image, { ImageProps } from 'next/image';
-import frontTop from 'public/frontTop.webp';
 import { HTMLAttributes } from 'react';
 
 interface ArticleI extends HTMLAttributes<HTMLDivElement> {
@@ -11,14 +10,19 @@ interface ArticleI extends HTMLAttributes<HTMLDivElement> {
     alt: ImageProps['alt'];
     priority?: ImageProps['priority'];
     withoutDescription?: boolean;
+    withoutTime?: boolean;
     description?: string;
+    time?: string;
     aspect: 'square' | 'story' | 'mixed';
 }
 
 export default function Article({
-    children,
     withoutDescription,
+    withoutTime,
+    title,
     description,
+    time,
+    src,
     href,
     aspect,
     priority,
@@ -27,6 +31,10 @@ export default function Article({
     const descriptionClasses = classnames({
         articleDescription: !withoutDescription,
         hidden: withoutDescription,
+    });
+    const timeClasses = classnames({
+        articleAuthor: !withoutTime,
+        hidden: withoutTime,
     });
 
     const imgClasses = classnames({
@@ -45,7 +53,7 @@ export default function Article({
                             className={imgClasses}
                             imageComp={
                                 <Image
-                                    src={frontTop}
+                                    src={src}
                                     alt="front"
                                     layout="fill"
                                     objectFit="cover"
@@ -55,15 +63,11 @@ export default function Article({
                             }
                         />
                     </Box>
-                    <h2 className="hover:underline hover:decoration-2 text-inherit pt-3">{description}</h2>
-
-                    {children}
+                    <h2 className="hover:underline hover:decoration-2 text-inherit pt-3">{title}</h2>
+                    <p className={descriptionClasses}>{description}</p>
                 </a>
             </Link>
-            <Box className={descriptionClasses}>
-                <p>by Liza Harber and Daryl Wehner in Creative</p>
-                <time>Featured — October, 2021</time>
-            </Box>
+            <p className={timeClasses}>{time}</p>
         </article>
     );
 }

@@ -16,6 +16,7 @@ export { default as SubscribeForm } from './molecules/SubscribeForm';
 export { default as FooterList } from './molecules/FooterList';
 export { default as FooterListItem } from './molecules/FooterListItem';
 export { default as PageWrapper } from './molecules/PageWrapper';
+export { default as SearchBar } from './molecules/SearchBar';
 
 //ORGANISM
 export { default as Footer } from './organism/Footer';

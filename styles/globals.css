@@ -50,8 +50,11 @@
     .artilceItemMain {
         @apply relative grid gap-y-3 text-size40 text-pageWhite leading-none cursor-pointer;
     }
+    .articleAuthor {
+        @apply font-sans text-xs pt-3 text-pageWhite;
+    }
     .articleDescription {
-        @apply font-sans text-xs text-pageWhite;
+        @apply font-sans text-base pt-3 text-pageWhite;
     }
     .articleItemTextHover {
         @apply border-b-default cursor-pointer w-fit duration-200 border-transparent hover:border-pageWhite;
@@ -61,5 +64,8 @@
     }
     .hArticle {
         @apply text-[6vw] md:text-[2rem];
+    }
+    .gridArticlePreviewClass {
+        @apply relative text-pageWhite leading-none cursor-pointer text-size20;
     }
 }
