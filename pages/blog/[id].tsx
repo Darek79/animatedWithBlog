@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { BLOCKS } from '@contentful/rich-text-types';
@@ -6,85 +6,25 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Document } from '@contentful/rich-text-types';
 import { HTMLAttributes } from 'react';
 import { PageWrapper, Sidebar, PageStructure, Navigation, MotionBox, Footer, Box } from 'components';
-import picArticle from 'public/picArticle.jpeg';
-// import { client } from 'utils/appolloClient';
-// import { gql, ApolloQueryResult } from '@apollo/client';
-// import type { BLOG_ARTICLE } from 'utils/articleTypes';
+import { client } from 'utils/appolloClient';
+import { gql, ApolloQueryResult } from '@apollo/client';
+import type { BLOG_ITEM } from 'Types/Blog_Item';
+import type { BLOG_PATHS } from 'Types/Blog_Paths';
 
-const document = {
-    data: {},
-    nodeType: 'document',
-    content: [
-        {
-            data: {},
-            content: [
-                {
-                    data: {},
-                    marks: [],
-                    value: 'The secret is to work less as individuals and more as a team',
-                    nodeType: 'text',
-                },
-            ],
-            nodeType: 'heading-1',
-        },
-        {
-            data: {},
-            content: [
-                {
-                    data: {},
-                    marks: [],
-                    value: 'Quasi vero aut concedatur in omnibus stultis aeque magna esse vitia, et eadem inbecillitate et inconstantia L. Levatio igitur vitiorum magna fit in iis, qui habent ad virtutem progressionis aliquantum.',
-                    nodeType: 'text',
-                },
-            ],
-            nodeType: 'paragraph',
-        },
-        {
-            data: {},
-            content: [
-                {
-                    data: {},
-                    marks: [],
-                    value: '',
-                    nodeType: 'text',
-                },
-            ],
-            nodeType: 'paragraph',
-        },
-    ],
-};
-
-const img = {
-    blogImg: {
-        width: 800,
-        height: 1200,
-        fileName: 'blogImg3.jpeg',
-        description: 'blogImg3',
-        url: picArticle,
-    },
-};
-
-const Heading = ({ children }: HTMLAttributes<HTMLElement>) => (
-    <h2 className="text-[12vw] sm:text-[8vw] md:text-[3.2rem] lg:text-[4rem] xl:text-[5.5rem] leading-none">
-        {children}
-    </h2>
-);
-const ParagraphPreview = ({ children }: HTMLAttributes<HTMLElement>) => (
-    <p className="text-[5vw] sm:text-[4vw] md:text-[1.1rem] lg:text-[1.7rem] mt-5 last-of-type:text-base last-of-type:underline last-of-type:lg:absolute last-of-type:bottom-0 last-of-type:underline-offset-2">
-        {children}
-    </p>
-);
+const Heading = ({ children }: HTMLAttributes<HTMLElement>) => <h2 className="hArticle">{children}</h2>;
+const ParagraphPreview = ({ children }: HTMLAttributes<HTMLElement>) => <p className="pArticle">{children}</p>;
 
 /* eslint-disable */
 const options = {
     renderNode: {
-        [BLOCKS.HEADING_1]: (node: any, children: any) => <Heading>{children}</Heading>,
+        [BLOCKS.HEADING_3]: (node: any, children: any) => <Heading>{children}</Heading>,
+        [BLOCKS.HEADING_4]: (node: any, children: any) => <Heading>{children}</Heading>,
         [BLOCKS.PARAGRAPH]: (node: any, children: any) => <ParagraphPreview>{children}</ParagraphPreview>,
     },
 };
 /* eslint-enable */
 
-const BlogPost: NextPage = () => {
+const BlogPost: NextPage<BLOG_ITEM> = ({ blogPostCollection }) => {
     return (
         <PageWrapper>
             <Head>
@@ -99,14 +39,27 @@ const BlogPost: NextPage = () => {
             <PageStructure htmlTag="main" className="bg-navBg">
                 <MotionBox className="bg-bgImg px-5 py-10 w-full aspect9_16 md:flex gap-8">
                     <MotionBox className="text-pageWhite relative">
-                        {documentToReactComponents(document as Document, options)}
+                        <h2 className="text-[12vw] sm:text-[8vw] md:text-[3.2rem] lg:text-[4rem] xl:text-[5.5rem] leading-none">
+                            {blogPostCollection.items[0].blogTxtPreviewTitle}
+                        </h2>
+                        <p className="text-[5vw] sm:text-[4vw] md:text-[1.1rem] lg:text-[1.7rem] mt-5 last-of-type:text-base last-of-type:underline last-of-type:lg:absolute last-of-type:bottom-0 last-of-type:underline-offset-2">
+                            {blogPostCollection.items[0].blogTxtPreviewDescription}
+                        </p>
+                        <p className="articleAuthor">{blogPostCollection.items[0].blogTxtPreviewAuthor}</p>
                     </MotionBox>
                     <MotionBox className="aspect6_9 md:aspect8_5 mt-10 md:mt-0 relative w-full">
-                        <Image src={img.blogImg.url} alt="article_img" layout="fill" priority={true} />
+                        <Image
+                            src={blogPostCollection.items[0].blogImg.url}
+                            alt={blogPostCollection.items[0].blogImg.fileName}
+                            layout="fill"
+                            priority={true}
+                        />
                     </MotionBox>
                 </MotionBox>
                 <Box className="px-5 grid gap-y-5 text-pageWhite pt-10 pb-40">
-                    <h2 className="hArticle">Pellentesque arcu mi</h2>
+                    {blogPostCollection.items[0].blogTxt &&
+                        documentToReactComponents(blogPostCollection.items[0].blogTxt.json as Document, options)}
+                    {/* <h2 className="hArticle">Pellentesque arcu mi</h2>
                     <p className="pArticle">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt justo vehicula nisi
                         mattis pharetra. Pellentesque arcu mi, auctor consequat libero aliquet, tincidunt fringilla
@@ -127,7 +80,7 @@ const BlogPost: NextPage = () => {
                         scelerisque mauris sed, vestibulum nulla. Nullam id eros elit. Aenean aliquam mauris et congue
                         aliquam. Maecenas sed tortor vitae sem lobortis laoreet eu et sapien. Quisque placerat velit vel
                         dolor posuere, dapibus lobortis urna commodo.
-                    </p>
+                    </p> */}
                 </Box>
             </PageStructure>
             <PageStructure htmlTag="footer" className="bg-navBg px-5">
@@ -140,54 +93,60 @@ const BlogPost: NextPage = () => {
 export default BlogPost;
 
 export async function getStaticPaths() {
-    // const result: ApolloQueryResult<BLOG_PATHS> = await client.query({
-    //     query: gql`
-    //         query BlogPostPaths {
-    //             blogPostCollection(skip: 0, limit: 5) {
-    //                 items {
-    //                     slug
-    //                 }
-    //             }
-    //         }
-    //     `,
-    // });
+    const {
+        data: {
+            blogPostCollection: { items },
+        },
+    }: ApolloQueryResult<BLOG_PATHS> = await client.query({
+        query: gql`
+            query BlogPaths {
+                blogPostCollection {
+                    items {
+                        slug
+                    }
+                }
+            }
+        `,
+    });
 
-    // const array: { params: { id: string } }[] | undefined = result.data.data.blogPostCollection.items?.map(el => ({
-    //     params: { id: el.slug },
-    // }));
-    // console.log(array, '1');
+    // if(result.loading)
+    // console.log(items, '--0--');
+    const paths: { params: { id: string } }[] = items.map(el => ({
+        params: { id: el.slug },
+    }));
+    // console.log(pathsArray, '--1--');
     return {
-        paths: [{ params: { id: 'article' } }],
+        paths,
         fallback: false,
     };
 }
 
-export async function getStaticProps() {
-    // const result: ApolloQueryResult<BLOG_ARTICLE> = await client.query({
-    //     query: gql`
-    //         query BlogPost {
-    //             blogPostCollection(skip: 0, limit: 5) {
-    //                 items {
-    //                     blogImg {
-    //                         width
-    //                         height
-    //                         fileName
-    //                         description
-    //                         url
-    //                     }
-    //                     blogTxtPreview {
-    //                         json
-    //                     }
-    //                     blogTxt {
-    //                         json
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     `,
-    // });
-
+export async function getStaticProps(ctx: GetStaticPropsContext) {
+    const {
+        data: { blogPostCollection },
+    }: ApolloQueryResult<BLOG_ITEM> = await client.query({
+        query: gql`
+            query BlogItem($slugID: String) {
+                blogPostCollection(where: { slug: $slugID }) {
+                    items {
+                        blogTxtPreviewTitle
+                        blogTxtPreviewDescription
+                        blogTxtPreviewAuthor
+                        blogTxt {
+                            json
+                        }
+                        blogImg {
+                            url
+                            fileName
+                        }
+                        slug
+                    }
+                }
+            }
+        `,
+        variables: { slugID: ctx.params?.id },
+    });
     return {
-        props: {},
+        props: { blogPostCollection },
     };
 }

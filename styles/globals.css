@@ -65,6 +65,9 @@
     .hArticle {
         @apply text-[6vw] md:text-[2rem];
     }
+    .hArticle {
+        @apply text-[7.5vw] md:text-[2.5rem];
+    }
     .gridArticlePreviewClass {
         @apply relative text-pageWhite leading-none cursor-pointer text-size20;
     }

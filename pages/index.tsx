@@ -16,7 +16,7 @@ import {
 } from 'components';
 import { client } from 'utils/appolloClient';
 import { gql, ApolloQueryResult } from '@apollo/client';
-import type { ARTICLE_PREVIEW, Data } from 'utils/Article_Preview';
+import type { ARTICLE_PREVIEW, Data } from 'Types/Article_Preview';
 import { ulItem } from 'Variants/variants';
 import { useEffect } from 'react';
 import { useStore } from 'Mobx/context';
@@ -52,7 +52,6 @@ const Home: NextPage<{ result: Data }> = ({ result }) => {
             <PageStructure htmlTag="nav" className="px-5">
                 <Navigation />
             </PageStructure>
-            <>{console.log(result.blogPostCollection.items)}</>
             <PageStructure htmlTag="main" className="bg-navBg">
                 <MotionBox
                     variants={ulItem}

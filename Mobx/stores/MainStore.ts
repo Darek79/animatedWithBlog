@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { ItemsEntity } from 'utils/Article_Preview';
+import { ItemsEntity } from 'Types/Article_Preview';
 
 export interface MainStoreI {
     sidebarOpen: boolean;
