@@ -5,7 +5,7 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
 import { HTMLAttributes } from 'react';
-import { PageWrapper, Sidebar, PageStructure, Navigation, MotionBox, Footer, Box } from 'components';
+import { PageWrapper, Sidebar, PageStructure, Navigation, MotionBox, Footer, Box, SearchBar } from 'components';
 import { client } from 'utils/appolloClient';
 import { gql, ApolloQueryResult } from '@apollo/client';
 import type { BLOG_ITEM } from 'Types/Blog_Item';
@@ -33,6 +33,7 @@ const BlogPost: NextPage<BLOG_ITEM> = ({ blogPostCollection }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Sidebar />
+            <SearchBar />
             <PageStructure htmlTag="nav" className="px-5 flex justify-between">
                 <Navigation />
             </PageStructure>
