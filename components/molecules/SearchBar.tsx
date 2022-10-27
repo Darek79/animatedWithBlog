@@ -23,7 +23,7 @@ function SearchBar(): JSX.Element {
             indexRef.current = mainStore.articleArray.findIndex(el =>
                 el.blogTxtPreviewTitle.toLowerCase().includes(inputRef.current?.value.toLowerCase() as string)
             );
-            setIndex(p => !p);
+            setIndex(true);
             console.log(mainStore.articleArray[indexRef.current]);
             formRef.current?.reset();
         }
@@ -33,7 +33,7 @@ function SearchBar(): JSX.Element {
     }
     function clearSearch() {
         mainStore.searchHandler();
-        setIndex(p => !p);
+        setIndex(false);
     }
 
     return (
@@ -76,6 +76,7 @@ function SearchBar(): JSX.Element {
                     >
                         <div className="w-[330px] h-full m-auto bg-navBg p-3">
                             <Article
+                                onClick={clearSearch}
                                 aspect="square"
                                 className="gridArticlePreviewClass"
                                 withoutDescription
