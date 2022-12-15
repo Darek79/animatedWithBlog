@@ -1,39 +1,15 @@
 import { HTMLAttributes, useRef } from 'react';
 import { LazyMotionWrapper } from 'components';
 import { m, useInView } from 'framer-motion';
+import { lineAnim, liItem } from 'anims/anims';
 interface PageSplitterI extends HTMLAttributes<HTMLDivElement> {
     text?: string;
 }
 
-const lineAnim = {
-    active: {
-        x: '0%',
-        transition: {
-            duration: 1,
-        },
-    },
-    inactive: {
-        x: '-100%',
-    },
-};
-
-export const liItem = {
-    active: {
-        y: '0%',
-        transition: {
-            duration: 0.5,
-            delay: 0.3,
-        },
-    },
-    inactive: {
-        y: '100%',
-        transition: {
-            duration: 0.2,
-        },
-    },
-};
-
-export default function PageSplitter({ text = 'SEE WHAT WE\'VE WRITTEN LATELY', ...rest }: PageSplitterI): JSX.Element {
+export default function PageSplitter({
+    text = 'SEE WHAT WE HAVE WRITTEN LATELY',
+    ...rest
+}: PageSplitterI): JSX.Element {
     const spanRef = useRef<HTMLParagraphElement>(null);
     const inView = useInView(spanRef, { amount: 'all', once: false, margin: '-100px 0px' });
 

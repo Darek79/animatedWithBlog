@@ -5,6 +5,7 @@ import classname from 'classnames';
 import spinner from 'public/RollingSpinner.svg';
 import Image from 'next/image';
 import { whileTap } from 'Variants/variants';
+import { messageAnim } from 'anims/anims';
 
 interface Properties extends HTMLFormControlsCollection {
     subscribe?: HTMLInputElement;
@@ -13,21 +14,6 @@ interface Properties extends HTMLFormControlsCollection {
 interface Data {
     readonly elements: Properties;
 }
-
-const messageAnim = {
-    open: {
-        y: '0%',
-        transition: {
-            duration: 0.5,
-        },
-    },
-    closed: {
-        y: '-100%',
-        transition: {
-            duration: 0.5,
-        },
-    },
-};
 
 interface SubscribeFormI extends HTMLAttributes<HTMLDivElement> {
     transparent?: boolean;

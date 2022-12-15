@@ -60,28 +60,6 @@ const BlogPost: NextPage<BLOG_ITEM> = ({ blogPostCollection }) => {
                 <Box className="px-5 grid gap-y-5 text-pageWhite pt-10 pb-40">
                     {blogPostCollection.items[0].blogTxt &&
                         documentToReactComponents(blogPostCollection.items[0].blogTxt.json as Document, options)}
-                    {/* <h2 className="hArticle">Pellentesque arcu mi</h2>
-                    <p className="pArticle">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt justo vehicula nisi
-                        mattis pharetra. Pellentesque arcu mi, auctor consequat libero aliquet, tincidunt fringilla
-                        libero.
-                    </p>
-                    <p className="pArticle">
-                        Ut volutpat ligula vitae lacus tempor tempor. Cras interdum hendrerit sapien, a viverra mauris
-                        eleifend rutrum. Nam ut ligula ornare, hendrerit nibh in, convallis tortor. Nunc sit amet tellus
-                        in felis tempus vulputate id quis neque. Aenean a vehicula ligula, a egestas urna. Aliquam diam
-                        massa, suscipit quis elit quis, tempor molestie nulla. Phasellus sed lobortis nisi, vitae
-                        feugiat orci. Nulla sed felis lorem.
-                    </p>
-                    <h2 className="hArticle">Sed eum qui audiebant</h2>
-                    <p className="pArticle">
-                        Vivamus ullamcorper vel massa sit amet ullamcorper. Suspendisse vitae orci in est facilisis
-                        fringilla sed ac est. Curabitur tristique augue magna, nec iaculis ante auctor sit amet. Nullam
-                        nec ligula a lorem consectetur consequat id sed lorem. Ut quis dui dui. Cras sed elit interdum,
-                        scelerisque mauris sed, vestibulum nulla. Nullam id eros elit. Aenean aliquam mauris et congue
-                        aliquam. Maecenas sed tortor vitae sem lobortis laoreet eu et sapien. Quisque placerat velit vel
-                        dolor posuere, dapibus lobortis urna commodo.
-                    </p> */}
                 </Box>
             </PageStructure>
             <PageStructure htmlTag="footer" className="bg-navBg px-5">
@@ -109,13 +87,9 @@ export async function getStaticPaths() {
             }
         `,
     });
-
-    // if(result.loading)
-    // console.log(items, '--0--');
     const paths: { params: { id: string } }[] = items.map(el => ({
         params: { id: el.slug },
     }));
-    // console.log(pathsArray, '--1--');
     return {
         paths,
         fallback: false,

@@ -9,8 +9,6 @@ type Data = {
 
 export default async function emailHandler(req: NextApiRequest, res: NextApiResponse<Data>) {
     const { email } = req.query;
-
-    console.log(process.env.MAILER_HOST, 'test');
     const transporter = nodemailer.createTransport({
         host: process.env.MAILER_HOST,
         port: 587,

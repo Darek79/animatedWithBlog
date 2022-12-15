@@ -19,12 +19,10 @@ function SearchBar(): JSX.Element {
 
     function getInputText(event: KeyboardEvent<HTMLInputElement>): void {
         if (event.key === 'Enter' && inputRef.current && inputRef.current?.value.length >= 5) {
-            console.log(inputRef.current?.value);
             indexRef.current = mainStore.articleArray.findIndex(el =>
                 el.blogTxtPreviewTitle.toLowerCase().includes(inputRef.current?.value.toLowerCase() as string)
             );
             setIndex(true);
-            console.log(mainStore.articleArray[indexRef.current]);
             formRef.current?.reset();
         }
     }
